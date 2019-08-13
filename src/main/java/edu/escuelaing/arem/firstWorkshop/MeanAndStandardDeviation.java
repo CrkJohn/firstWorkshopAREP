@@ -4,7 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * clase que representa el calculo de la media y la desviacion estandar de un conjunto de numeros.
+ * 
+ * @author CrkJohn
+ * 
+ */
 public class MeanAndStandardDeviation{
 	
 	private static final String FILENAME = "input.in";
@@ -12,6 +17,10 @@ public class MeanAndStandardDeviation{
 	public static double amountNumbers , meanValue ;
 	
 	
+	/**
+	 * 
+	 * @return retorna la desviacion estandar de un conjunto de números
+	 */
 	
 	public static double standardDeviation() throws Exception {
 		double stDeviationValue = 0.0;
@@ -22,6 +31,10 @@ public class MeanAndStandardDeviation{
 		return Math.sqrt(sqrt);		
 	}	
 	
+	
+	/**
+	 *  @return retorna la media de un conjunto de números
+	 */
 	public static double mean() throws Exception {
 		meanValue = 0.0;
 		for(int i  = 0 ; i < amountNumbers ; ++i) {

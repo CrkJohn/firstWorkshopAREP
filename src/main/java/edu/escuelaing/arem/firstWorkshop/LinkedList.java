@@ -4,10 +4,16 @@ import java.util.List;
 
 import lombok.ToString;
 
+
+/**
+ * Clase que representa una linked list de tipo T
+ * 
+ * @author CrkJohn 
+ */
 public class LinkedList<T> implements ILikendList<T>{
 	
 	private static Node head = null;
-	
+
 	public void add(T data) {
 		Node newNode = new Node<T>(data,null,null);
 		if(head == null) {
@@ -23,7 +29,7 @@ public class LinkedList<T> implements ILikendList<T>{
 		}
 	}
 	
-	
+
 	public T getNode(int id) throws Exception {
 		if(head == null){
 			throw new  Exception("head null");
@@ -41,6 +47,10 @@ public class LinkedList<T> implements ILikendList<T>{
 	}
 	
 	
+	
+	/**
+	 * @return retorna un string que es  la respresentacion de linked list
+	 */	
 	public String ToString() {
 		Node current = head;
 		StringBuilder builder = new StringBuilder();
@@ -52,48 +62,5 @@ public class LinkedList<T> implements ILikendList<T>{
 		builder.append( current.getData().toString() +" }");
 		return builder.toString();
 	}
-
-
-	 /*
-	public static LinkedLists delete(LinkedLists linked,Object obj) {
-		if(linked.head!= null && linked.head.data.equals(obj)) {
-			linked.head = linked.head.next;
-			return linked;
-		}
-		Node lastNode = linked.head;
-		while(lastNode.next !=null && !lastNode.next.data.equals(obj)) {
-			lastNode = lastNode.next; 
-		}
-		if(lastNode.next == null) {
-			System.out.println("Not found element");
-			return linked;
-		}else if(lastNode.next.data.equals(obj)){
-			Node tmpNode = lastNode.next;
-			lastNode.next = tmpNode.next;
-		}
-		return linked;
-	}
 	
-	 
-	public static void main(String args[]) {
-		LinkedLists linked = new LinkedLists();
-		linked = insert(linked, "Kha");
-		linked = insert(linked, "Kha2");
-		linked = insert(linked, "Kha3");	
-		linked = delete(linked, "Kha2");	
-		linked = delete(linked, "Kha4");
-		linked = delete(linked, "Kha");
-		linked = delete(linked, "Kha3");
-		printList(linked);
-		
-		
-	}
-
-		
-
-	*/
-	
-
-
-
 }
