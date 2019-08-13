@@ -24,3 +24,9 @@ hs_err_pid*
 
 # delete all target
 target/
+
+
+
+.classpath
+.project
+.settings
