@@ -8,36 +8,40 @@ import java.util.ArrayList;
 public class MeanAndStandardDeviation{
 	
 	private static final String FILENAME = "input.in";
-	public static ArrayList<Double> numbers;
+	public static LinkedList<Double> numbers = new LinkedList<Double>();
 	public static double amountNumbers , meanValue ;
 	
-	public static double standardDeviation() {
+	
+	
+	public static double standardDeviation() throws Exception {
 		double stDeviationValue = 0.0;
-		for(double n : numbers) {
-			stDeviationValue += Math.pow(n-meanValue, 2);
+		for(int i  = 0 ; i < amountNumbers ; ++i) {
+			stDeviationValue += Math.pow(numbers.getNode(i)-meanValue, 2);
 		}
 		double sqrt = stDeviationValue/(amountNumbers-1.0);
 		return Math.sqrt(sqrt);		
 	}	
 	
-	public static double mean() {
+	public static double mean() throws Exception {
 		meanValue = 0.0;
-		for(double n : numbers) {
-			meanValue+=n;
+		for(int i  = 0 ; i < amountNumbers ; ++i) {
+			System.out.println(i);
+			meanValue+=numbers.getNode(i);
 		}
 		meanValue/=amountNumbers;
 		return meanValue;	
 	}
 	
-	public static void main(String args[]) {
+	
+	public static void main(String args[]) throws Exception {
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(FILENAME));
 		    String strCurrentLine;
-		    numbers = new ArrayList<Double>();
-		    while ((strCurrentLine = br.readLine()) != null) {
+		    amountNumbers = 0;
+		    while ((strCurrentLine = br.readLine()) != null){
 		    	numbers.add(Double.parseDouble(strCurrentLine));
+		    	amountNumbers++;
 		    }
-		    amountNumbers = numbers.size();
 		    System.out.println("The value of mean is "+ mean());
 		    System.out.println("The value of standard deviation is "+ standardDeviation());
 		    
