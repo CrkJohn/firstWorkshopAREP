@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MeanAndStandardDeviation",
+            "request": "launch",
+            "mainClass": "edu.escuelaing.arem.firstWorkshop.MeanAndStandardDeviation",
+            "projectName": "firstWorkshop"
+        }
+    ]
+}

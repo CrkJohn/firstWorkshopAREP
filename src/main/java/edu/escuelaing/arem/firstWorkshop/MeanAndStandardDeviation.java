@@ -3,6 +3,8 @@ package edu.escuelaing.arem.firstWorkshop;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 /**
  * clase que representa el calculo de la media y la desviacion estandar de un conjunto de numeros.
@@ -12,14 +14,15 @@ import java.util.ArrayList;
  */
 public class MeanAndStandardDeviation{
 	
-	private static final String FILENAME = "input.in";
-	public static LinkedList<Double> numbers = new LinkedList<Double>();
+	public static LinkedList<Double> numbers;
 	public static double amountNumbers , meanValue ;
+	private static NumberFormat formatter = new DecimalFormat("#0.00");     
+
 	
 	
 	/**
 	 * 
-	 * @return retorna la desviacion estandar de un conjunto de números
+	 * @return retorna la desviacion estandar de un conjunto de nï¿½meros
 	 */
 	
 	public static double standardDeviation() throws Exception {
@@ -28,45 +31,44 @@ public class MeanAndStandardDeviation{
 			stDeviationValue += Math.pow(numbers.getNode(i)-meanValue, 2);
 		}
 		double sqrt = stDeviationValue/(amountNumbers-1.0);
-		return Math.sqrt(sqrt);		
+		return Double.valueOf(formatter.format(Math.sqrt(sqrt)).replace(",",".")) ;		
 	}	
 	
-	
 	/**
-	 *  @return retorna la media de un conjunto de números
+	 *  @return retorna la media de un conjunto de nï¿½meros
 	 */
 	public static double mean() throws Exception {
 		meanValue = 0.0;
 		for(int i  = 0 ; i < amountNumbers ; ++i) {
-			System.out.println(i);
 			meanValue+=numbers.getNode(i);
 		}
 		meanValue/=amountNumbers;
-		return meanValue;	
+		return Double.valueOf(formatter.format(meanValue).replace(",","."));	
 	}
 	
-	
-	public static void main(String args[]) throws Exception {
+	public static void readFile(String file){
+		amountNumbers = 0;
+		meanValue = 0;
+		numbers = new LinkedList<Double>();
 		try{
-			BufferedReader br = new BufferedReader(new FileReader(FILENAME));
+			  BufferedReader br = new BufferedReader(new FileReader(file));
 		    String strCurrentLine;
 		    amountNumbers = 0;
 		    while ((strCurrentLine = br.readLine()) != null){
 		    	numbers.add(Double.parseDouble(strCurrentLine));
 		    	amountNumbers++;
-		    }
-		    System.out.println("The value of mean is "+ mean());
-		    System.out.println("The value of standard deviation is "+ standardDeviation());
-		    
+				}    
+				System.err.println(numbers.ToString());
 		  } catch (IOException e) {
 		   e.printStackTrace();
 		  }
-		
 	}
 	
-	
-	
-
-	
+	public static void main(String args[]) throws Exception {
+			readFile("input2.in");
+			
+		  System.out.println("The value of mean is "+ mean());
+		  System.out.println("The value of standard deviation is "+ standardDeviation());		
+	}
 
 }

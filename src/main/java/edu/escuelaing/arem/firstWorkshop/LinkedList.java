@@ -14,6 +14,9 @@ public class LinkedList<T> implements ILikendList<T>{
 	
 	private static Node head = null;
 
+	public  LinkedList(){
+		head = null;
+	}
 	public void add(T data) {
 		Node newNode = new Node<T>(data,null,null);
 		if(head == null) {

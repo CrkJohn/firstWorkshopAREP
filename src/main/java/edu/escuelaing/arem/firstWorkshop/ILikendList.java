@@ -22,5 +22,5 @@ public interface ILikendList<T> {
 	 */
 	
 	public T getNode(int id) throws Exception;
-	
+
 }
