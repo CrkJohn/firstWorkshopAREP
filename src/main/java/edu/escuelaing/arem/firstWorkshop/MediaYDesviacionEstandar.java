@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author CrkJohn
  * 
  */
-public class MeanAndStandardDeviation{
+public class MediaYDesviacionEstandar{
 	
 	public static LinkedList<Double> numbers;
 	public static double amountNumbers , meanValue ;
@@ -23,12 +23,13 @@ public class MeanAndStandardDeviation{
 	/**
 	 * 
 	 * @return retorna la desviacion estandar de un conjunto de n�meros
+	 * @throws Exception
 	 */
 	
-	public static double standardDeviation() throws Exception {
+	public static double desviacionEstandar() throws Exception {
 		double stDeviationValue = 0.0;
 		for(int i  = 0 ; i < amountNumbers ; ++i) {
-			stDeviationValue += Math.pow(numbers.getNode(i)-meanValue, 2);
+			stDeviationValue += Math.pow(numbers.getNodo(i)-meanValue, 2);
 		}
 		double sqrt = stDeviationValue/(amountNumbers-1.0);
 		return Double.valueOf(formatter.format(Math.sqrt(sqrt)).replace(",",".")) ;		
@@ -36,11 +37,12 @@ public class MeanAndStandardDeviation{
 	
 	/**
 	 *  @return retorna la media de un conjunto de n�meros
+	 *  @throws Exception
 	 */
-	public static double mean() throws Exception {
+	public static double media() throws Exception {
 		meanValue = 0.0;
 		for(int i  = 0 ; i < amountNumbers ; ++i) {
-			meanValue+=numbers.getNode(i);
+			meanValue+=numbers.getNodo(i);
 		}
 		meanValue/=amountNumbers;
 		return Double.valueOf(formatter.format(meanValue).replace(",","."));	
@@ -55,7 +57,7 @@ public class MeanAndStandardDeviation{
 		    String strCurrentLine;
 		    amountNumbers = 0;
 		    while ((strCurrentLine = br.readLine()) != null){
-		    	numbers.add(Double.parseDouble(strCurrentLine));
+		    	numbers.agregarNodo(Double.parseDouble(strCurrentLine));
 		    	amountNumbers++;
 				}    
 				System.err.println(numbers.ToString());
@@ -67,8 +69,8 @@ public class MeanAndStandardDeviation{
 	public static void main(String args[]) throws Exception {
 			readFile("input2.in");
 			
-		  System.out.println("The value of mean is "+ mean());
-		  System.out.println("The value of standard deviation is "+ standardDeviation());		
+		  System.out.println("The value of mean is "+ media());
+		  System.out.println("The value of standard deviation is "+ desviacionEstandar());		
 	}
 
 }

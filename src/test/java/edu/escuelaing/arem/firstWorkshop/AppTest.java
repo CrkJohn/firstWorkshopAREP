@@ -2,7 +2,6 @@ package edu.escuelaing.arem.firstWorkshop;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import edu.escuelaing.arem.firstWorkshop.*;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -31,10 +30,10 @@ public class AppTest{
         writer.println("624");
         writer.println("1503");
         writer.close();
-        MeanAndStandardDeviation.readFile("input.in");
+        MediaYDesviacionEstandar.readFile("input.in");
         try {
-            assertEquals(MeanAndStandardDeviation.mean(), 550.60 , 2);
-            assertEquals(MeanAndStandardDeviation.standardDeviation(),572.03 , 2);
+            assertEquals(MediaYDesviacionEstandar.media(), 550.60 , 2);
+            assertEquals(MediaYDesviacionEstandar.desviacionEstandar(),572.03 , 2);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,11 +57,10 @@ public class AppTest{
         writer.println("38.8");
         writer.println("138.15");
         writer.close();
-        MeanAndStandardDeviation.readFile("input2.in");
-        System.err.println(MeanAndStandardDeviation.standardDeviation());
+        MediaYDesviacionEstandar.readFile("input2.in");
         try {
-            //assertEquals(MeanAndStandardDeviation.mean(), 60.32 , 2);
-            //assertEquals(MeanAndStandardDeviation.standardDeviation(),62.25 , 2);
+            assertEquals(MediaYDesviacionEstandar.media(), 60.32 , 2);
+            assertEquals(MediaYDesviacionEstandar.desviacionEstandar(),62.25 , 2);
         } catch (Exception e) {
             e.printStackTrace();
         }

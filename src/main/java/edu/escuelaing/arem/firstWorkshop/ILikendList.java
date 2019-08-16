@@ -10,17 +10,18 @@ public interface ILikendList<T> {
 	
 	
 	/**
-	 *  @param node nodo que se quiere agregar a la linked list
+	 *  @param nodo nodo que se quiere agregar a la linked list
 	 */
 	
-	public void add(T node);
+	public void agregarNodo(T nodo);
 	
 	
 	/**
 	 * @param id indice del nodo que se desea obtener de la linked list
+	 * @throws Exception Se dara una excepcion si el id del elemento no se encuentra en la linked list
 	 * @return retorna el nodo indexado en ese id
 	 */
 	
-	public T getNode(int id) throws Exception;
+	public T getNodo(int id) throws Exception;
 
 }
